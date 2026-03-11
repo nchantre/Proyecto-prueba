@@ -1,0 +1,24 @@
+services:
+  pagos-api:
+    build:
+      context: .
+      dockerfile: Pagos.API/Dockerfile
+    container_name: pagos-api
+    ports:
+      - "8080:8080"
+
+  pedidos-api:
+    build:
+      context: .
+      dockerfile: Pedidos.API/Dockerfile
+    container_name: pedidos-api
+    ports:
+      - "8081:8080"
+
+  user-api:
+    build:
+      context: .
+      dockerfile: User.API/Dockerfile
+    container_name: user-api
+    ports:
+      - "8082:8080"
