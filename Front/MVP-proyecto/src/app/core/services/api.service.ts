@@ -24,21 +24,12 @@ export class ApiService {
   private http = inject(HttpClient);
   private apiUrl = 'https://jsonplaceholder.typicode.com';
 
-  // simple cache keyed by `page` so we don't refetch pages we've already seen
+
   private postsCache = new Map<number, Post[]>();
-  // cache for the complete set of posts if we ever fetch them all
   private allPostsCache: Post[] | null = null;
 
-  /**
-   * Fetch posts with optional pagination.
-   * jsonplaceholder supports `_limit` and `_page` query params and
-   * returns `X-Total-Count` header with the total number of items.
-   * The service caches each page and also prefetches the next page in the background.
-   * This method remains available for incremental loading, but the component can
-   * call `getAllPosts()` if it prefers to pull everything once and page locally.
-   */
+
   getPosts(page = 1, limit = 10): Observable<Post[]> {
-    // if we've already loaded all posts, we can slice locally instead of hitting network again
     if (this.allPostsCache) {
       const start = (page - 1) * limit;
       return new Observable((sub) => {
@@ -49,7 +40,6 @@ export class ApiService {
 
     const cached = this.postsCache.get(page);
     if (cached) {
-      // schedule a prefetch of next page if not already in cache
       this.prefetch(page + 1, limit);
       return new Observable((sub) => {
         sub.next(cached);
@@ -66,11 +56,6 @@ export class ApiService {
     return request$;
   }
 
-  /**
-   * Retrieve all posts in a single network call (limit 100) and cache them.
-   * Subsequent callers get the cached array instantly; pagination can then be
-   * performed client‑side with no additional HTTP overhead.
-   */
   getAllPosts(): Observable<Post[]> {
     if (this.allPostsCache) {
       return new Observable((sub) => {

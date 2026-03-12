@@ -15,6 +15,5 @@ Este repositorio contiene una aplicación Angular 20 con renderizado del lado de
   - `src/app/shared`: modelos y utilidades compartidas.
   - `assets/` y `public/`: recursos estáticos.
   - `environments/`: configuración por ambiente.
-- **Pruebas**:
-  - Pruebas unitarias con Jasmine + Karma, archivos `*.spec.ts` junto al código.
+
 

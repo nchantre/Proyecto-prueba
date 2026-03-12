@@ -1,3 +1,4 @@
+ 
 # MVP-Proyecto - Levantamiento de Infraestructura con Docker
 
 ## 1. Requisitos previos
@@ -110,6 +111,7 @@ docker exec -it mvp-container sh
 | Angular (Front)    | mvp-container       | 8083           |
 
 ---
+## Revisar directorio Arquitectura 
 # Microservicios MVP-Proyecto
 
 ## Descripción General
