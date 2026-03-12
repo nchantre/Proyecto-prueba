@@ -111,7 +111,7 @@ docker exec -it mvp-container sh
 
 ---
 
-# MVPProyecto
+# MVPProyecto Front
 
 Este repositorio contiene una aplicación Angular 20 con renderizado del lado del servidor (SSR) y despliegue en contenedor.
 
