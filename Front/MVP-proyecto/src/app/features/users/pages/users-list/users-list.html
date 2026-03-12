@@ -1,0 +1,45 @@
+<main class="dashboard-layout">
+  <app-navbar></app-navbar>
+  <div class="dashboard-content">
+    <app-sidebar></app-sidebar>
+    <section class="main-content">
+      <div class="content-header">
+        <h2>Usuarios</h2>
+        <p>Listado de usuarios del sistema</p>
+      </div>
+
+      <div *ngIf="loading" class="loading">
+        <p>Cargando usuarios...</p>
+      </div>
+
+      <div *ngIf="error && !loading" class="error">
+        {{ error }}
+      </div>
+
+      <div *ngIf="!loading && !error" class="users-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Teléfono</th>
+              <th>Sitio Web</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>{{ user.name }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.phone }}</td>
+              <td>
+                <a [href]="'https://' + user.website" target="_blank">
+                  {{ user.website }}
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</main>

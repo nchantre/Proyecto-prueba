@@ -1,0 +1,17 @@
+<aside class="sidebar" [class.open]="isOpen">
+  <nav class="sidebar-nav">
+    <ul class="menu-list">
+      <li *ngFor="let item of menu" class="menu-item">
+        <a
+          *ngIf="item.roles.includes(role || '')"
+          [routerLink]="item.route"
+          (click)="layout.closeSidebar()"
+          routerLinkActive="active"
+          class="menu-link"
+        >
+          {{ item.title }}
+        </a>
+      </li>
+    </ul>
+  </nav>
+</aside>

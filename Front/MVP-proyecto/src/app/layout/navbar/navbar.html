@@ -1,0 +1,15 @@
+<nav class="navbar" [ngClass]="{ 'dark-mode': isDarkMode() }">
+  <div class="navbar-content">
+    <!-- hamburger for small screens -->
+    <button class="hamburger" (click)="toggleSidebar()" aria-label="Toggle menu">
+      ☰
+    </button>
+    <h1 class="navbar-title">MVP Proyecto</h1>
+    <div class="navbar-actions">
+      <button class="theme-btn" (click)="toggleTheme()" title="Toggle theme">
+        {{ isDarkMode() ? '☀️' : '🌙' }}
+      </button>
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</nav>

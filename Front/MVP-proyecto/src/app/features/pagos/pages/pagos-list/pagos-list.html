@@ -1,0 +1,39 @@
+<main class="dashboard-layout">
+  <app-navbar></app-navbar>
+  <div class="dashboard-content">
+    <app-sidebar></app-sidebar>
+    <section class="main-content">
+      <div class="content-header">
+        <h2>Pagos</h2>
+        <p>Registro de pagos realizados (Solo para Administrador)</p>
+      </div>
+
+      <div class="pagos-table">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Concepto</th>
+              <th>Monto</th>
+              <th>Fecha</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pago of pagos">
+              <td>{{ pago.id }}</td>
+              <td>{{ pago.concepto }}</td>
+              <td>{{ pago.monto | currency:'$':'symbol':'1.0-0' }}</td>
+              <td>{{ pago.fecha | date:'dd/MM/yyyy' }}</td>
+              <td>
+                <span class="estado" [ngClass]="'estado-' + (pago.estado === 'Completado' ? 'completado' : 'pendiente')">
+                  {{ pago.estado }}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</main>

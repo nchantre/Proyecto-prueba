@@ -1,0 +1,35 @@
+<main class="dashboard-layout">
+  <app-navbar></app-navbar>
+  <div class="dashboard-content">
+    <app-sidebar></app-sidebar>
+    <section class="main-content">
+      <div class="content-header">
+        <h2>Pedidos</h2>
+        <p>Gestión de pedidos del sistema</p>
+      </div>
+
+      <div class="pedidos-table">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Cliente</th>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pedido of pedidos">
+              <td>{{ pedido.id }}</td>
+              <td>{{ pedido.cliente }}</td>
+              <td>{{ pedido.producto }}</td>
+              <td>{{ pedido.cantidad }}</td>
+              <td>{{ pedido.total | currency:'$':'symbol':'1.0-0' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</main>
