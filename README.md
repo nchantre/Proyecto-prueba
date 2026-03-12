@@ -112,6 +112,7 @@ docker exec -it mvp-container sh
 
 ---
 ## Revisar directorio Arquitectura 
+https://github.com/nchantre/Proyecto-prueba/tree/main/arquitectura
 # Microservicios MVP-Proyecto
 
 ## Descripción General
